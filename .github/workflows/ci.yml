@@ -8,7 +8,7 @@ on:
 
 env:
     CONFIG: Release
-    XUNIT3_PROJECT: Merlin.XUnit3/Merlin.XUnit3.csproj
+    XUNIT3_PROJECT: Sauceless/Sauceless.csproj
     COVERAGE_FORMAT: cobertura
     XUNIT3_INTEGRATION_COVERAGE_FILENAME: cobertura.xunit3.integration.xml
 
