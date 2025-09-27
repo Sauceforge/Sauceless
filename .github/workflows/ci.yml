@@ -6,6 +6,12 @@ on:
   pull_request:
     branches: [ main ]
 
+env:
+    CONFIG: Release
+    XUNIT3_PROJECT: Merlin.XUnit3/Merlin.XUnit3.csproj
+    COVERAGE_FORMAT: cobertura
+    XUNIT3_INTEGRATION_COVERAGE_FILENAME: cobertura.xunit3.integration.xml
+
 jobs:
   build-and-test:
     runs-on: windows-latest
@@ -23,7 +29,7 @@ jobs:
         run: dotnet restore
 
       - name: Build
-        run: dotnet build --no-restore --configuration Release
+        run: dotnet build --no-restore -c ${{ env.CONFIG }}
 
       - name: Run integration tests
-        run: dotnet test --no-build --configuration Release --logger trx
+        run: dotnet run -c ${{ env.CONFIG }} --project ${{ env.XUNIT3_PROJECT }} -- --coverage --coverage-output-format ${{ env.COVERAGE_FORMAT }} --coverage-output ${{ env.XUNIT3_INTEGRATION_COVERAGE_FILENAME }}
