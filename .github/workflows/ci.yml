@@ -32,4 +32,4 @@ jobs:
         run: dotnet build --no-restore -c ${{ env.CONFIG }}
 
       - name: Run integration tests
-        run: dotnet run -c ${{ env.CONFIG }} --project ${{ env.XUNIT3_PROJECT }} -- --coverage --coverage-output-format ${{ env.COVERAGE_FORMAT }} --coverage-output ${{ env.XUNIT3_INTEGRATION_COVERAGE_FILENAME }}
+        run: dotnet test --no-build -c ${{ env.CONFIG }} --logger trx
