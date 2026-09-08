@@ -37,4 +37,3 @@ jobs:
           --project ${{ env.XUNIT3_PROJECT }}
           --no-build
           -c ${{ env.CONFIG }}
-          --report-trx
